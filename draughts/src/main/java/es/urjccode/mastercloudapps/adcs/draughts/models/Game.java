@@ -56,9 +56,9 @@ public class Game {
 		if (pieceError != null) {
 			return pieceError;
 		}
-		if (origin.diagonalDistance(target) == 2) {
-			Coordinate between = origin.betweenDiagonal(target);
-			this.board.remove(between);
+		Coordinate coordinateToRemove = piece.getCoordinateToRemove(origin, target, this.board);
+		if (coordinateToRemove != null) {
+			this.board.remove(coordinateToRemove);
 		}
 		this.board.move(origin, target);
 		this.turn.change();

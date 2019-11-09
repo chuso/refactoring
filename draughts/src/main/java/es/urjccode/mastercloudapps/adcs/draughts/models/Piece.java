@@ -41,4 +41,12 @@ public class Piece {
 		return null;
 	}
 
+	public Coordinate getCoordinateToRemove(Coordinate origin, Coordinate target, PieceProvider pieceProvider) {
+		assert this.validate(origin, target, pieceProvider) == null;
+		if (origin.diagonalDistance(target) == 2) {
+			return origin.betweenDiagonal(target);
+		}
+		return null;
+	}
+
 }
