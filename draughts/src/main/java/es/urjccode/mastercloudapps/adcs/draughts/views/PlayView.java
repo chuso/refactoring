@@ -21,7 +21,7 @@ class PlayView extends SubView {
             String[] numbers = command.split("\\.|\\s+");
             error = playController.move(new Coordinate(numbers[0]), new Coordinate(numbers[1]));
             if (error != null){
-                console.writeln("Error!!!" + error.name());
+                console.writeln(MessageView.ERROR.getMessage().replaceFirst("#error", error.name()));
             gameView.write(playController);
             }
         } while (error != null); 
