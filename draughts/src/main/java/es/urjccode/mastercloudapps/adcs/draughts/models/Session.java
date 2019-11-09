@@ -10,6 +10,7 @@ public class Session {
 		this.state = new State();
 		this.game = new Game();
 	}
+
 	public StateValue getValueState() {
 		return this.state.getValueState();
 	}
@@ -45,7 +46,5 @@ public class Session {
 	public int getDimension() {
 		return this.game.getDimension();
 	}
-
-	
 
 }

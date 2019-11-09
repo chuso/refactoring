@@ -14,7 +14,7 @@ public class Piece {
 		return this.color;
 	}
 
-	public boolean isAdvanced(Coordinate origin, Coordinate target) {
+	boolean isAdvanced(Coordinate origin, Coordinate target) {
 		int difference = origin.getRow() - target.getRow();
 		if (color == Color.WHITE){
 			return difference>0;
@@ -22,7 +22,7 @@ public class Piece {
 		return difference<0;
 	}
 
-	public Error validate(Coordinate origin, Coordinate target, PieceProvider pieceProvider) {
+	Error validate(Coordinate origin, Coordinate target, PieceProvider pieceProvider) {
 		if (!origin.isDiagonal(target)) {
 			return Error.NOT_DIAGONAL;
 		}
@@ -41,7 +41,7 @@ public class Piece {
 		return null;
 	}
 
-	public Coordinate getCoordinateToRemove(Coordinate origin, Coordinate target, PieceProvider pieceProvider) {
+	Coordinate getCoordinateToRemove(Coordinate origin, Coordinate target, PieceProvider pieceProvider) {
 		assert this.validate(origin, target, pieceProvider) == null;
 		if (origin.diagonalDistance(target) == 2) {
 			return origin.betweenDiagonal(target);

@@ -4,11 +4,11 @@ import es.urjccode.mastercloudapps.adcs.draughts.controllers.Controller;
 import es.urjccode.mastercloudapps.adcs.draughts.models.Color;
 import es.urjccode.mastercloudapps.adcs.draughts.models.Coordinate;
 
-public class GameView extends SubView {
+class GameView extends SubView {
 
     private static final String[] COLORS = new String[]{"b", "n", " "};
 
-	public void write(Controller controller) {
+	void write(Controller controller) {
         final int DIMENSION = controller.getDimension();
         this.writeNumbersLine(DIMENSION);
         for(int i=0; i<DIMENSION; i++){
