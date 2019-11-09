@@ -52,15 +52,12 @@ public class Game {
 			return Error.NOT_EMPTY_TARGET;
 		}
 		Piece piece = this.board.getPiece(origin);
-		Error pieceError = piece.validate(origin, target);
+		Error pieceError = piece.validate(origin, target, this.board);
 		if (pieceError != null) {
 			return pieceError;
 		}
 		if (origin.diagonalDistance(target) == 2) {
 			Coordinate between = origin.betweenDiagonal(target);
-			if (this.board.getPiece(between) == null) {
-				return Error.EATING_EMPTY;
-			}
 			this.board.remove(between);
 		}
 		this.board.move(origin, target);

@@ -22,7 +22,7 @@ public class Piece {
 		return difference<0;
 	}
 
-	public Error validate(Coordinate origin, Coordinate target) {
+	public Error validate(Coordinate origin, Coordinate target, PieceProvider pieceProvider) {
 		if (!origin.isDiagonal(target)) {
 			return Error.NOT_DIAGONAL;
 		}
@@ -31,6 +31,12 @@ public class Piece {
 		}
 		if (origin.diagonalDistance(target) >= 3) {
 			return Error.BAD_DISTANCE;
+		}
+		if (origin.diagonalDistance(target) == 2) {
+			Coordinate between = origin.betweenDiagonal(target);
+			if (pieceProvider.getPiece(between) == null) {
+				return Error.EATING_EMPTY;
+			}
 		}
 		return null;
 	}
