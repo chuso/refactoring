@@ -51,15 +51,15 @@ public class Game {
 		if (!origin.isDiagonal(target)) {
 			return Error.NOT_DIAGONAL;
 		}
+		if (!this.board.isEmpty(target)) {
+			return Error.NOT_EMPTY_TARGET;
+		}
 		Piece piece = this.board.getPiece(origin);
 		if (!piece.isAdvanced(origin, target)) {
 			return Error.NOT_ADVANCED;
 		}
 		if (origin.diagonalDistance(target) >= 3) {
 			return Error.BAD_DISTANCE;
-		}
-		if (!this.board.isEmpty(target)) {
-			return Error.NOT_EMPTY_TARGET;
 		}
 		if (origin.diagonalDistance(target) == 2) {
 			Coordinate between = origin.betweenDiagonal(target);
