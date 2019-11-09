@@ -12,6 +12,12 @@ public class Coordinate {
         this.column = column;
     }
 
+    public Coordinate(String format) {
+        int number = Integer.parseInt(format);
+        this.row = number/10-1;
+        this.column = number%10-1;
+    }
+
     public boolean isValid() {
         return Coordinate.LOWER_LIMIT <= row && row <= Coordinate.UPPER_LIMIT && Coordinate.LOWER_LIMIT <= column
                 && column <= Coordinate.UPPER_LIMIT;
