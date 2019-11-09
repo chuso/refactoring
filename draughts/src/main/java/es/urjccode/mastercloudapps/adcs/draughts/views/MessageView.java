@@ -4,7 +4,8 @@ import es.urjccode.mastercloudapps.adcs.draughts.utils.Console;
 
 enum MessageView {
 
-    TITLE("Draughts");
+    TITLE("Draughts"),
+    LOSE("Derrota!!! No puedes mover tus fichas!!!");
 
     private String message;
 
