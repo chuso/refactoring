@@ -7,7 +7,8 @@ enum MessageView {
     TITLE("Draughts"),
     LOSE("Derrota!!! No puedes mover tus fichas!!!"),
     ANOUNCE_MOVE("Mueven las #color: "),
-    ERROR("Error!!!#error");
+    ERROR("Error!!!#error"),
+    RESUME("¿Queréis jugar otra");
 
     private String message;
 
