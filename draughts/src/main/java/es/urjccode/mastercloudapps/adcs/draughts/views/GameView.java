@@ -11,13 +11,7 @@ class GameView extends SubView {
 	void write(Controller controller) {
         final int DIMENSION = controller.getDimension();
         this.writeNumbersLine(DIMENSION);
-        for(int i=0; i<DIMENSION; i++){
-            this.console.write((i+1)+"");
-            for(int j=0; j<DIMENSION; j++){
-                this.writeSquare(controller, new Coordinate(i, j));
-            }
-            this.console.writeln((i+1)+"");
-        }
+        this.writeBoard(controller);
         this.writeNumbersLine(DIMENSION);
 	}
 
@@ -27,6 +21,17 @@ class GameView extends SubView {
             this.console.write((i+1)+"");
         }
         this.console.writeln();
+    }
+
+    private void writeBoard(Controller controller) {
+        final int DIMENSION = controller.getDimension();
+        for(int i=0; i<DIMENSION; i++) {
+            this.console.write((i+1)+"");
+            for(int j=0; j<DIMENSION; j++) {
+                this.writeSquare(controller, new Coordinate(i, j));
+            }
+            this.console.writeln((i+1)+"");
+        }
     }
 
     private void writeSquare(Controller controller, Coordinate coordinate) {
