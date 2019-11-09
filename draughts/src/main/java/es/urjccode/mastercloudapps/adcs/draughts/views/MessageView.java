@@ -5,7 +5,8 @@ import es.urjccode.mastercloudapps.adcs.draughts.utils.Console;
 enum MessageView {
 
     TITLE("Draughts"),
-    LOSE("Derrota!!! No puedes mover tus fichas!!!");
+    LOSE("Derrota!!! No puedes mover tus fichas!!!"),
+    ANOUNCE_MOVE("Mueven las #color: ");
 
     private String message;
 
@@ -14,6 +15,10 @@ enum MessageView {
     private MessageView(String message) {
         this.message = message;
     }
+
+    public String getMessage() {
+		return this.message;
+	}
 
     void write() {
         MessageView.console.write(this.message);

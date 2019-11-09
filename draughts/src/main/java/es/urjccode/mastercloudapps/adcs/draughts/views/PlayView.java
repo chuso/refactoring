@@ -17,7 +17,7 @@ class PlayView extends SubView {
         Error error = null;
         GameView gameView = new GameView();
         do {
-            String command = this.console.readString("Mueven las " + color + ": ");
+            String command = this.console.readString(MessageView.ANOUNCE_MOVE.getMessage().replaceFirst("#color", color));
             String[] numbers = command.split("\\.|\\s+");
             error = playController.move(new Coordinate(numbers[0]), new Coordinate(numbers[1]));
             if (error != null){
