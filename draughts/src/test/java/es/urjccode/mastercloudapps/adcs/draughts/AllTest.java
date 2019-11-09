@@ -10,7 +10,7 @@ import es.urjccode.mastercloudapps.adcs.draughts.views.AllViewTest;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({ 
     AllModelTest.class, 
-    AllControllerTest.class, 
+    AllControllerTest.class,
     AllViewTest.class } )
 public final class AllTest {
 }
