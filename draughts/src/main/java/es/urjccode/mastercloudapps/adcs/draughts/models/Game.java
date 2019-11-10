@@ -39,7 +39,7 @@ public class Game {
 	Error move(Coordinate origin, Coordinate target) {
 		Movement movement = new Movement(origin, target);
 		assert origin != null && target != null;
-		if (!origin.isValid() || !target.isValid()) {
+		if (!movement.isValid()) {
 			return Error.OUT_COORDINATE;
 		}
 		if (board.isEmpty(origin)) {

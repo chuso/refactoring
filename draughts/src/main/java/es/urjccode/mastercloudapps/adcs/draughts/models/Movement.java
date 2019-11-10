@@ -18,6 +18,10 @@ class Movement {
         this.target = target;
     }
 
+    boolean isValid() {
+        return origin.isValid() && target.isValid();
+    }
+
     boolean isDiagonal() {
         return origin.isDiagonal(target);
     }
