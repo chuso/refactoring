@@ -1,6 +1,6 @@
 package es.urjccode.mastercloudapps.adcs.draughts.models;
 
-class Movement {
+public class Movement {
 
     private Coordinate origin;
 
@@ -13,7 +13,7 @@ class Movement {
         );
     }
 
-    Movement(Coordinate origin, Coordinate target) {
+    public Movement(Coordinate origin, Coordinate target) {
         this.origin = origin;
         this.target = target;
     }

@@ -23,8 +23,8 @@ public class Session {
 		this.state.reset();
 	}
 
-	public Error move(Coordinate origin, Coordinate target) {
-		return this.game.move(new Movement(origin, target));
+	public Error move(Movement movement) {
+		return this.game.move(movement);
 	}
 
 	public Piece getPiece(Coordinate coordinate) {

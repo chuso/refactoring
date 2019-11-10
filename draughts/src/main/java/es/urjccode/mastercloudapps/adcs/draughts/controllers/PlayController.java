@@ -5,6 +5,7 @@ import es.urjccode.mastercloudapps.adcs.draughts.models.Coordinate;
 import es.urjccode.mastercloudapps.adcs.draughts.models.Piece;
 import es.urjccode.mastercloudapps.adcs.draughts.models.Session;
 import es.urjccode.mastercloudapps.adcs.draughts.models.Error;
+import es.urjccode.mastercloudapps.adcs.draughts.models.Movement;
 
 public class PlayController extends Controller {
 
@@ -13,7 +14,7 @@ public class PlayController extends Controller {
 	}
 
 	public Error move(Coordinate origin, Coordinate target){
-		Error error = this.session.move(origin, target);
+		Error error = this.session.move(new Movement(origin, target));
 		if (this.session.isBlocked()){
 			this.session.next();
 		}
