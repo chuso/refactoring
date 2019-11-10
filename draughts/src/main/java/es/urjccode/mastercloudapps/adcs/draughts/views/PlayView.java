@@ -16,13 +16,14 @@ class PlayView extends SubView {
         String color = PlayView.COLORS[playController.getColor().ordinal()];
         Error error = null;
         GameView gameView = new GameView();
+        String promptString = MessageView.ANOUNCE_MOVE.getMessage().replaceFirst("#color", color);
         do {
-            String command = this.console.readString(MessageView.ANOUNCE_MOVE.getMessage().replaceFirst("#color", color));
+            String command = this.console.readString(promptString);
             String[] numbers = command.split("\\.|\\s+");
             error = playController.move(new Coordinate(numbers[0]), new Coordinate(numbers[1]));
             if (error != null){
                 console.writeln(MessageView.ERROR.getMessage().replaceFirst("#error", error.name()));
-            gameView.write(playController);
+                gameView.write(playController);
             }
         } while (error != null); 
         if (playController.isBlocked()){
