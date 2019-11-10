@@ -33,8 +33,7 @@ public class Piece {
 		return null;
 	}
 
-	Coordinate getCoordinateToRemove(Coordinate origin, Coordinate target, PieceProvider pieceProvider) {
-		Movement movement = new Movement(origin, target);
+	Coordinate getCoordinateToRemove(Movement movement, PieceProvider pieceProvider) {
 		assert this.validate(movement, pieceProvider) == null;
 		if (movement.diagonalDistance() == 2) {
 			return movement.betweenDiagonal();

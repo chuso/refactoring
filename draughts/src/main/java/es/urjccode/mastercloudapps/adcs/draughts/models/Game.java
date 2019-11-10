@@ -57,7 +57,7 @@ public class Game {
 		if (pieceError != null) {
 			return pieceError;
 		}
-		Coordinate coordinateToRemove = piece.getCoordinateToRemove(origin, target, this.board);
+		Coordinate coordinateToRemove = piece.getCoordinateToRemove(movement, this.board);
 		if (coordinateToRemove != null) {
 			this.board.remove(coordinateToRemove);
 		}
