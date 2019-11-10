@@ -27,6 +27,7 @@ class Movement {
     }
 
     boolean isValid() {
+        assert origin != null && target != null;
         return origin.isValid() && target.isValid();
     }
 
