@@ -22,10 +22,10 @@ public class Piece {
 		if (!this.isAdvanced(movement)) {
 			return Error.NOT_ADVANCED;
 		}
-		if (origin.diagonalDistance(target) >= 3) {
+		if (movement.diagonalDistance() >= 3) {
 			return Error.BAD_DISTANCE;
 		}
-		if (origin.diagonalDistance(target) == 2) {
+		if (movement.diagonalDistance() == 2) {
 			Coordinate between = origin.betweenDiagonal(target);
 			if (pieceProvider.getPiece(between) == null) {
 				return Error.EATING_EMPTY;

@@ -15,4 +15,8 @@ class Movement {
         return origin.getRow() - target.getRow();
     }
 
+    public int diagonalDistance() {
+        return origin.diagonalDistance(target);
+    }
+
 }
