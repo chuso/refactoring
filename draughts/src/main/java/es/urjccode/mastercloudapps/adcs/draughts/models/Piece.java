@@ -18,7 +18,7 @@ public class Piece {
 		if (!origin.isDiagonal(target)) {
 			return Error.NOT_DIAGONAL;
 		}
-		if (!this.isAdvanced(origin, target)) {
+		if (!this.isAdvanced(new Movement(origin, target))) {
 			return Error.NOT_ADVANCED;
 		}
 		if (origin.diagonalDistance(target) >= 3) {
@@ -41,8 +41,8 @@ public class Piece {
 		return null;
 	}
 
-	private boolean isAdvanced(Coordinate origin, Coordinate target) {
-		int difference = origin.getRow() - target.getRow();
+	private boolean isAdvanced(Movement movement) {
+		int difference = movement.origin.getRow() - movement.target.getRow();
 		if (color == Color.WHITE){
 			return difference>0;
 		}
