@@ -37,24 +37,11 @@ public class Game {
 	}
 
 	Error move(Movement movement) {
-		if (!movement.isValid()) {
-			return Error.OUT_COORDINATE;
-		}
-		if (board.isEmpty(movement.getOrigin())) {
-			return Error.EMPTY_ORIGIN;
-		}
-		Color color = this.board.getColor(movement.getOrigin());
-		if (this.turn.getColor() != color) {
-			return Error.OPPOSITE_PIECE;
-		}
-		if (!this.board.isEmpty(movement.getTarget())) {
-			return Error.NOT_EMPTY_TARGET;
+		Error error = validateMovement(movement);
+		if (error != null) {
+			return error;
 		}
 		Piece piece = this.board.getPiece(movement.getOrigin());
-		Error pieceError = piece.validate(movement, this.board);
-		if (pieceError != null) {
-			return pieceError;
-		}
 		Coordinate coordinateToRemove = piece.getCoordinateToRemove(movement, this.board);
 		if (coordinateToRemove != null) {
 			this.board.remove(coordinateToRemove);
@@ -87,6 +74,24 @@ public class Game {
 
 	int getDimension() {
 		return this.board.getDimension();
+	}
+
+	private Error validateMovement(Movement movement) {
+		if (!movement.isValid()) {
+			return Error.OUT_COORDINATE;
+		}
+		if (board.isEmpty(movement.getOrigin())) {
+			return Error.EMPTY_ORIGIN;
+		}
+		Color color = this.board.getColor(movement.getOrigin());
+		if (this.turn.getColor() != color) {
+			return Error.OPPOSITE_PIECE;
+		}
+		if (!this.board.isEmpty(movement.getTarget())) {
+			return Error.NOT_EMPTY_TARGET;
+		}
+		Piece piece = this.board.getPiece(movement.getOrigin());
+		return piece.validate(movement, this.board);
 	}
 
 }
