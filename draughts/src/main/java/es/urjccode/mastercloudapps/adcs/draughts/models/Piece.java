@@ -26,7 +26,7 @@ public class Piece {
 			return Error.BAD_DISTANCE;
 		}
 		if (movement.diagonalDistance() == 2) {
-			Coordinate between = origin.betweenDiagonal(target);
+			Coordinate between = movement.betweenDiagonal();
 			if (pieceProvider.getPiece(between) == null) {
 				return Error.EATING_EMPTY;
 			}

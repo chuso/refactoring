@@ -23,4 +23,8 @@ class Movement {
         return origin.diagonalDistance(target);
     }
 
+    Coordinate betweenDiagonal() {
+        return origin.betweenDiagonal(target);
+    }
+
 }
