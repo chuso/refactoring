@@ -11,4 +11,8 @@ class Movement {
         this.target = target;
     }
 
+    public int getRowDifference() {
+        return origin.getRow() - target.getRow();
+    }
+
 }
