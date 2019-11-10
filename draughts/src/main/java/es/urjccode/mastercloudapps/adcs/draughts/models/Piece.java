@@ -14,8 +14,7 @@ public class Piece {
 		return this.color;
 	}
 
-	Error validate(Coordinate origin, Coordinate target, PieceProvider pieceProvider) {
-		Movement movement = new Movement(origin, target);
+	Error validate(Movement movement, PieceProvider pieceProvider) {
 		if (!movement.isDiagonal()) {
 			return Error.NOT_DIAGONAL;
 		}
@@ -36,7 +35,7 @@ public class Piece {
 
 	Coordinate getCoordinateToRemove(Coordinate origin, Coordinate target, PieceProvider pieceProvider) {
 		Movement movement = new Movement(origin, target);
-		assert this.validate(origin, target, pieceProvider) == null;
+		assert this.validate(movement, pieceProvider) == null;
 		if (movement.diagonalDistance() == 2) {
 			return movement.betweenDiagonal();
 		}

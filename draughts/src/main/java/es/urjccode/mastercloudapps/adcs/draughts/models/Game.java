@@ -37,6 +37,7 @@ public class Game {
 	}
 
 	Error move(Coordinate origin, Coordinate target) {
+		Movement movement = new Movement(origin, target);
 		assert origin != null && target != null;
 		if (!origin.isValid() || !target.isValid()) {
 			return Error.OUT_COORDINATE;
@@ -52,7 +53,7 @@ public class Game {
 			return Error.NOT_EMPTY_TARGET;
 		}
 		Piece piece = this.board.getPiece(origin);
-		Error pieceError = piece.validate(origin, target, this.board);
+		Error pieceError = piece.validate(movement, this.board);
 		if (pieceError != null) {
 			return pieceError;
 		}

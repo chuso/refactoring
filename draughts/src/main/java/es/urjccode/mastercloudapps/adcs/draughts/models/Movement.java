@@ -6,6 +6,13 @@ class Movement {
 
     public Coordinate target;
 
+    Movement(int originRow, int originColumn, int targetRow, int targetColumn) {
+        this(
+            new Coordinate(originRow, originColumn),
+            new Coordinate(targetRow, targetColumn)
+        );
+    }
+
     Movement(Coordinate origin, Coordinate target) {
         this.origin = origin;
         this.target = target;

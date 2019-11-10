@@ -16,19 +16,19 @@ public class PieceTest {
 
     @Test
     public void testGivenPieceWhenIsAdvancedThenNull(){
-        assertNull(new Piece(Color.WHITE).validate(new Coordinate(5,0), new Coordinate(4,1), pieceProvider));
-        assertNull(new Piece(Color.BLACK).validate(new Coordinate(2,1), new Coordinate(3,2), pieceProvider));
+        assertNull(new Piece(Color.WHITE).validate(new Movement(5,0,4,1), pieceProvider));
+        assertNull(new Piece(Color.BLACK).validate(new Movement(2,1,3,2), pieceProvider));
     }
 
     @Test
     public void testGivenPieceWhenNotIsAdvancedThenError(){
-        assertEquals(Error.NOT_ADVANCED, new Piece(Color.WHITE).validate(new Coordinate(5,0), new Coordinate(6,1), pieceProvider));
-        assertEquals(Error.NOT_ADVANCED, new Piece(Color.BLACK).validate(new Coordinate(2,1), new Coordinate(1,2), pieceProvider));
+        assertEquals(Error.NOT_ADVANCED, new Piece(Color.WHITE).validate(new Movement(5,0,6,1), pieceProvider));
+        assertEquals(Error.NOT_ADVANCED, new Piece(Color.BLACK).validate(new Movement(2,1,1,2), pieceProvider));
     }
 
     @Test
     public void testGivenPieceWhenIsNotDiagonalThenError() {
-        assertEquals(Error.NOT_DIAGONAL, new Piece(Color.BLACK).validate(new Coordinate(2,1), new Coordinate(2,3), pieceProvider));
-        assertEquals(Error.NOT_DIAGONAL, new Piece(Color.WHITE).validate(new Coordinate(5,0), new Coordinate(5,2), pieceProvider));
+        assertEquals(Error.NOT_DIAGONAL, new Piece(Color.BLACK).validate(new Movement(2,1,2,3), pieceProvider));
+        assertEquals(Error.NOT_DIAGONAL, new Piece(Color.WHITE).validate(new Movement(5,0,5,2), pieceProvider));
     }
 }
