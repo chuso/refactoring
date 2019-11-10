@@ -11,6 +11,10 @@ class Movement {
         this.target = target;
     }
 
+    public boolean isDiagonal() {
+        return origin.isDiagonal(target);
+    }
+
     public int getRowDifference() {
         return origin.getRow() - target.getRow();
     }

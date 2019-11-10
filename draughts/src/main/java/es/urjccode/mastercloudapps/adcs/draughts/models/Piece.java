@@ -16,7 +16,7 @@ public class Piece {
 
 	Error validate(Coordinate origin, Coordinate target, PieceProvider pieceProvider) {
 		Movement movement = new Movement(origin, target);
-		if (!origin.isDiagonal(target)) {
+		if (!movement.isDiagonal()) {
 			return Error.NOT_DIAGONAL;
 		}
 		if (!this.isAdvanced(movement)) {
