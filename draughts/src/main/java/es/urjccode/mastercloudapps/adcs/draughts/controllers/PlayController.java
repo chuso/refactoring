@@ -13,8 +13,8 @@ public class PlayController extends Controller {
 		super(session);
 	}
 
-	public Error move(Coordinate origin, Coordinate target){
-		Error error = this.session.move(new Movement(origin, target));
+	public Error move(Movement movement){
+		Error error = this.session.move(movement);
 		if (this.session.isBlocked()){
 			this.session.next();
 		}

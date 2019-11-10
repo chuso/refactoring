@@ -6,7 +6,7 @@ public class Movement {
 
     private Coordinate target;
 
-    Movement(int originRow, int originColumn, int targetRow, int targetColumn) {
+    public Movement(int originRow, int originColumn, int targetRow, int targetColumn) {
         this(
             new Coordinate(originRow, originColumn),
             new Coordinate(targetRow, targetColumn)
@@ -45,6 +45,22 @@ public class Movement {
 
     Coordinate betweenDiagonal() {
         return origin.betweenDiagonal(target);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Movement other = (Movement) obj;
+        if (!origin.equals(other.origin))
+            return false;
+        if (!target.equals(other.target))
+            return false;
+        return true;
     }
 
 }

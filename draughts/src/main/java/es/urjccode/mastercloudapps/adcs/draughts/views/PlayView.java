@@ -2,6 +2,7 @@ package es.urjccode.mastercloudapps.adcs.draughts.views;
 
 import es.urjccode.mastercloudapps.adcs.draughts.controllers.PlayController;
 import es.urjccode.mastercloudapps.adcs.draughts.models.Error;
+import es.urjccode.mastercloudapps.adcs.draughts.models.Movement;
 import es.urjccode.mastercloudapps.adcs.draughts.models.Coordinate;
 
 class PlayView extends SubView {
@@ -20,7 +21,8 @@ class PlayView extends SubView {
         do {
             String command = this.console.readString(promptString);
             String[] numbers = command.split("\\.|\\s+");
-            error = playController.move(new Coordinate(numbers[0]), new Coordinate(numbers[1]));
+            Movement movement = new Movement(new Coordinate(numbers[0]), new Coordinate(numbers[1]));
+            error = playController.move(movement);
             if (error != null){
                 console.writeln(MessageView.ERROR.getMessage().replaceFirst("#error", error.name()));
                 gameView.write(playController);
