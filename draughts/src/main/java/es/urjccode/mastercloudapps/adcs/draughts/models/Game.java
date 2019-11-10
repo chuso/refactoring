@@ -61,7 +61,7 @@ public class Game {
 		if (coordinateToRemove != null) {
 			this.board.remove(coordinateToRemove);
 		}
-		this.board.move(origin, target);
+		this.board.move(movement);
 		this.turn.change();
 		return null;
 	}

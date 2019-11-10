@@ -33,8 +33,8 @@ class Board implements PieceProvider {
         return this.getSquare(coordinate).remove();
     }
 
-    void move(Coordinate origin, Coordinate target) {
-        this.put(target, this.remove(origin));
+    void move(Movement movement) {
+        this.put(movement.getTarget(), this.remove(movement.getOrigin()));
     }
 
     public Piece getPiece(Coordinate coordinate) {
