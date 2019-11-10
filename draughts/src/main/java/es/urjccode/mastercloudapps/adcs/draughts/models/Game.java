@@ -36,22 +36,21 @@ public class Game {
 		return null;
 	}
 
-	Error move(Coordinate origin, Coordinate target) {
-		Movement movement = new Movement(origin, target);
+	Error move(Movement movement) {
 		if (!movement.isValid()) {
 			return Error.OUT_COORDINATE;
 		}
-		if (board.isEmpty(origin)) {
+		if (board.isEmpty(movement.getOrigin())) {
 			return Error.EMPTY_ORIGIN;
 		}
-		Color color = this.board.getColor(origin);
+		Color color = this.board.getColor(movement.getOrigin());
 		if (this.turn.getColor() != color) {
 			return Error.OPPOSITE_PIECE;
 		}
-		if (!this.board.isEmpty(target)) {
+		if (!this.board.isEmpty(movement.getTarget())) {
 			return Error.NOT_EMPTY_TARGET;
 		}
-		Piece piece = this.board.getPiece(origin);
+		Piece piece = this.board.getPiece(movement.getOrigin());
 		Error pieceError = piece.validate(movement, this.board);
 		if (pieceError != null) {
 			return pieceError;

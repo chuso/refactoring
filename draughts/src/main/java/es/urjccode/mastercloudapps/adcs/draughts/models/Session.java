@@ -24,7 +24,7 @@ public class Session {
 	}
 
 	public Error move(Coordinate origin, Coordinate target) {
-		return this.game.move(origin, target);
+		return this.game.move(new Movement(origin, target));
 	}
 
 	public Piece getPiece(Coordinate coordinate) {

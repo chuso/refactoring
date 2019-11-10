@@ -42,7 +42,7 @@ public class GameTest {
         Error error = null;
         for (int i = 0; i < coordinates.length; i++) {
             assertNull(error);
-            error = game.move(coordinates[i][0], coordinates[i][1]);
+            error = game.move(new Movement(coordinates[i][0], coordinates[i][1]));
         }
         return error;
     }
@@ -109,12 +109,12 @@ public class GameTest {
     public void testGivenGameWhenCorrectMovementThenOk() {
         Coordinate origin = new Coordinate(5, 0);
         Coordinate target = new Coordinate(4, 1);
-        this.game.move(origin, target);
+        this.game.move(new Movement(origin, target));
         assertNull(this.game.getColor(origin));
         assertEquals(Color.WHITE, this.game.getColor(target));
         origin = new Coordinate(2, 3);
         target = new Coordinate(3, 4);
-        this.game.move(origin, target);
+        this.game.move(new Movement(origin, target));
         assertNull(this.game.getColor(origin));
         assertEquals(Color.BLACK, this.game.getColor(target));
     }
