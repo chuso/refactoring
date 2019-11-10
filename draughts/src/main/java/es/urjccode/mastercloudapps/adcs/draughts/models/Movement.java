@@ -6,20 +6,20 @@ class Movement {
 
     public Coordinate target;
 
-    public Movement(Coordinate origin, Coordinate target) {
+    Movement(Coordinate origin, Coordinate target) {
         this.origin = origin;
         this.target = target;
     }
 
-    public boolean isDiagonal() {
+    boolean isDiagonal() {
         return origin.isDiagonal(target);
     }
 
-    public int getRowDifference() {
+    int getRowDifference() {
         return origin.getRow() - target.getRow();
     }
 
-    public int diagonalDistance() {
+    int diagonalDistance() {
         return origin.diagonalDistance(target);
     }
 
