@@ -2,9 +2,9 @@ package es.urjccode.mastercloudapps.adcs.draughts.models;
 
 class Movement {
 
-    public Coordinate origin;
+    private Coordinate origin;
 
-    public Coordinate target;
+    private Coordinate target;
 
     Movement(int originRow, int originColumn, int targetRow, int targetColumn) {
         this(
@@ -16,6 +16,14 @@ class Movement {
     Movement(Coordinate origin, Coordinate target) {
         this.origin = origin;
         this.target = target;
+    }
+
+    Coordinate getOrigin() {
+        return origin;
+    }
+
+    Coordinate getTarget() {
+        return target;
     }
 
     boolean isValid() {
